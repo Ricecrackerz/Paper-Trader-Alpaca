@@ -1,3 +1,4 @@
+from webbrowser import get
 import requests, json
 from config import *
 
@@ -25,6 +26,8 @@ def create_order(symbol, qty, side, type, time_in_force):
 
     return json.loads(r.content)
 
+account = get_account()
 response = create_order("TSLA",100, "buy", "market", "gtc")
 
+print(account)
 print(response)
